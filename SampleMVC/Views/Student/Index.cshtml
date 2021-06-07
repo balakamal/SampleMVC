@@ -1,0 +1,28 @@
+﻿@model IEnumerable<SampleMVC.Models.Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Details</h2>
+<table class="table table-bordered table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Branch</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model)
+            {
+                <tr>
+                    <td>@i.Id</td>
+                    <td>@Html.ActionLink(i.Name, "Details", "Student", new { id = i.Id }, null)</td>
+                    <td>@i.Branch</td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+
